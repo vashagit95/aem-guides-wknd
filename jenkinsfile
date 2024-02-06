@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    environment {
+        AEM_HOME = "/path/to/aem"
+        MAVEN_HOME = tool 'Maven'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Check out your AEM project from version control
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build AEM project using Maven
+                sh "${MAVEN_HOME}/bin/mvn clean install"
+            }
+        }
+
+        stage('Deploy to AEM') {
+            steps {
+                // Deploy the built AEM package to AEM instance
+                sh "${MAVEN_HOME}/bin/mvn -PautoInstallPackage deploy"
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run any automated tests for your AEM project
+                sh "${MAVEN_HOME}/bin/mvn test"
+            }
+        }
+
+        stage('Deploy to Author and Publish') {
+            steps {
+                // Deploy the built AEM package to Author and Publish instances
+                sh "${MAVEN_HOME}/bin/mvn -PautoInstallPackage,autoInstallPackageAuthor,autoInstallPackagePublish deploy"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'AEM Deployment Successful'
+        }
+
+        failure {
+            echo 'AEM Deployment Failed'
+        }
+    }
+}
