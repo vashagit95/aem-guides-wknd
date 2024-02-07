@@ -272,7 +272,7 @@ Bundle-DocURL:
                     <source>1.8</source>
                     <target>1.8</target>
                     <verbose>true</verbose>
-                    </configuration>
+    </configuration>
                 </plugin>
                 <!-- Maven Installer Plugin -->
                 <plugin>
@@ -408,7 +408,7 @@ Bundle-DocURL:
                                     <pluginExecutionFilter>
                                         <groupId>org.apache.maven.plugins</groupId>
                                         <artifactId>maven-enforcer-plugin</artifactId>
-                                        <versionRange>[1.0.0,)</versionRange>
+                                        <versionRange>[1.0.0,]</versionRange>
                                         <goals>
                                             <goal>enforce</goal>
                                         </goals>
@@ -426,7 +426,7 @@ Bundle-DocURL:
                                             maven-dependency-plugin
                                         </artifactId>
                                         <versionRange>
-                                            [2.2,)
+                                            <div 2.2,=""></div>
                                         </versionRange>
                                         <goals>
                                             <goal>copy-dependencies</goal>
@@ -446,7 +446,7 @@ Bundle-DocURL:
                                             build-helper-maven-plugin
                                         </artifactId>
                                         <versionRange>
-                                            [1.5,)
+                                            <div 1.5,=""></div>
                                         </versionRange>
                                         <goals>
                                             <goal>
@@ -500,9 +500,17 @@ Bundle-DocURL:
             </repositories>
 
             <pluginRepositories>
-                <pluginRepository> 
-                <id>maven2</id> 
-                <url>https://repo.maven.apache.org/maven2/</url> 
+                <pluginRepository>
+                    <id>adobe-public-releases</id>
+                    <name>Adobe Public Repository</name>
+                    <url>https://repo.adobe.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
