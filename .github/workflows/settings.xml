@@ -27,7 +27,7 @@
                 </os>
                 <property>
                  <name>mavenVersion</name>
-                 <value>2.0.3</value>
+                 <value>2.1.0</value>
                 </property>
             </activation>
         </profile>
