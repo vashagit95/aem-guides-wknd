@@ -141,7 +141,7 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>org.apache.sling.models.impl</artifactId>
             <version>1.4.4</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>     
     </dependencies>
 
       <!-- Additional Profiles for Cloud Service vs. 6.x -->
