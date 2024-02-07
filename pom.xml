@@ -292,20 +292,8 @@ Bundle-DocURL:
                 <!-- Maven Failsafe Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.20.1</version>
-                <configuration>
-                    <skipTests>false</skipTests>
-                    <argLine>-Djava.library.path=${project.parent.basedir}/lib/${arquitecturaMaquina}</argLine>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>2.22.1</version>
                 </plugin>
                 <!-- Maven Deploy Plugin -->
                 <plugin>
